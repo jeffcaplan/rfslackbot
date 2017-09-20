@@ -51,9 +51,11 @@ def inbound():
         else:
             # Prepare and send RF API query response metrics & Connect API URL to Slack
             for res in result['events']:
+                # Add error checking for ALL these values, as they are optional and inconsistent
                 stats = res['stats']['stats']
                 firstSeen = stats['first']['published']
-                lastSeen = stats['mostRecent']['published']
+                if not (lastSeen = stats['mostRecent']['published']):
+                    lastSeen = "-"
                 data = res['stats']['metrics']
                 crit = data.get('criticality')
                 if(crit == 1):
@@ -96,7 +98,7 @@ def inbound():
                         },
                         {
                             "title": "Risk Score:",
-                            "value": riskScore,
+                            "value": str(riskScore) + '/100',
                             "short": "true"
                         },
                         {
@@ -154,6 +156,7 @@ def inbound():
     t = Thread(target=queryRF)
     t.start()
     return "Querying Recorded Future API.  Please wait..."
+    # TODO monitor the status of the thread and if it takes too long to complete, stop it and return an error to Slack
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
