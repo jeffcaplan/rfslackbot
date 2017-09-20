@@ -51,7 +51,8 @@ def inbound():
         else:
             # Prepare and send RF API query response metrics & Connect API URL to Slack
             for res in result['events']:
-                firstSeen = res['stats']['stats']['First']['Published']
+                #firstSeen = res['stats']['stats']['First']['Published']
+                firstSeen = "temp"
                 lastSeen = res['stats']['stats']['MostRecent']['Published']
                 data = res['stats']['metrics']
                 crit = data.get('criticality')
