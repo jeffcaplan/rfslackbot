@@ -54,8 +54,7 @@ def inbound():
                 # Add error checking for ALL these values, as they are optional and inconsistent
                 stats = res['stats']['stats']
                 firstSeen = stats['first']['published']
-                if not (lastSeen = stats['mostRecent']['published']):
-                    lastSeen = "-"
+                lastSeen = stats['mostRecent']['published']
                 data = res['stats']['metrics']
                 crit = data.get('criticality')
                 if(crit == 1):
