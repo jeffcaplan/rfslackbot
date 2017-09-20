@@ -62,6 +62,9 @@ def inbound():
                 elif(crit == 3):
                     criticality = "Critical"
                     color = "#E15025"
+                else:
+                    criticality = str(data.get('criticality'))
+                    color ="#000000"
                 totalHits = data.get('totalHits')
                 riskScore = data.get('riskScore')
                 maliciousHits = data.get('maliciousHits')
