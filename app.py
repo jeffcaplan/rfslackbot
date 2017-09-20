@@ -91,17 +91,17 @@ def inbound():
                         'text': 'Total Hits:  ' + str(totalHits),
                         "fields": [
                         {
-                            "title": "Criticality",
+                            "title": "Criticality:",
                             "value": criticality,
                             "short": "true"
                         },
                         {
                             "title": "Risk Score:",
-                            "value": str(riskScore) + '/100',
+                            "value": str(int(riskScore)) + '/100',
                             "short": "true"
                         },
                         {
-                            "title": "Malicious Hits",
+                            "title": "Malicious Hits:",
                             "value": maliciousHits,
                             "short": "true"
                         },
