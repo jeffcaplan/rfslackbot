@@ -88,9 +88,7 @@ def inbound():
                         'author_name': queryString,
                         'title': 'Recorded Future Connect API Search Results',
                         'title_link': 'https://www.recordedfuture.com/live/sc/entity/' + entity,
-                        'text': 'Total Hits:  ' + str(totalHits) +
-                                '\nFirst Seen:  ' + firstSeen +
-                                '\nLast Seen:  ' + lastSeen,
+                        'text': 'Total Hits:  ' + str(totalHits),
                         "fields": [
                         {
                             "title": "Criticality",
@@ -120,6 +118,16 @@ def inbound():
                         {
                             "title": "1-day Hits (Total):",
                             "value": oneDayHits,
+                            "short": "true"
+                        },
+                        {
+                            "title": "First Seen:",
+                            "value": firstSeen,
+                            "short": "true"
+                        },
+                        {
+                            "title": "Last Seen:",
+                            "value": lastSeen,
                             "short": "true"
                         },
                         ],
