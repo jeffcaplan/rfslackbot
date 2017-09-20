@@ -88,7 +88,9 @@ def inbound():
                         'author_name': queryString,
                         'title': 'Recorded Future Connect API Search Results',
                         'title_link': 'https://www.recordedfuture.com/live/sc/entity/' + entity,
-                        'text': 'Total Hits:  ' + str(totalHits),
+                        'text': 'Total Hits:  ' + str(totalHits) +
+                                'First Seen:  ' + firstSeen +
+                                'Last Seen:  ' + lastSeen,
                         "fields": [
                         {
                             "title": "Criticality",
@@ -121,8 +123,6 @@ def inbound():
                             "short": "true"
                         },
                         ],
-                        "text": "First Seen: " + firstSeen,
-                        "text": "Last Seen: " + lastSeen,
                         "footer": "Recorded Future",
                         "footer_icon": "https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAOnAAAAJDJjOGE4Mzk4LWMwMDktNGY1OC05NTNmLTBlNDVhNjllYjcxZg.png",
                         "ts": time.time()
