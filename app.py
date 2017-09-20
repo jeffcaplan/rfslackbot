@@ -69,7 +69,7 @@ def inbound():
                 riskScore = data.get('riskScore')
                 maliciousHits = data.get('maliciousHits')
                 darkWebHits = data.get('darkWebHits')
-                sevenDayHits = data.get('sevenDayHits')
+                sevenDayHits = data.get('sevenDaysHits')
                 oneDayHits = data.get('oneDayHits')
 
                 payload = json.dumps({
