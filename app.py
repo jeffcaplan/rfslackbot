@@ -89,8 +89,8 @@ def inbound():
                         'title': 'Recorded Future Connect API Search Results',
                         'title_link': 'https://www.recordedfuture.com/live/sc/entity/' + entity,
                         'text': 'Total Hits:  ' + str(totalHits) +
-                                'First Seen:  ' + firstSeen +
-                                'Last Seen:  ' + lastSeen,
+                                '\nFirst Seen:  ' + firstSeen +
+                                '\nLast Seen:  ' + lastSeen,
                         "fields": [
                         {
                             "title": "Criticality",
