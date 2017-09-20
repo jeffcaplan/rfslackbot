@@ -51,6 +51,8 @@ def inbound():
         else:
             # Prepare and send RF API query response metrics & Connect API URL to Slack
             for res in result['events']:
+                firstSeen = res['stats']['stats']['First']['Published']
+                lastSeen = res['stats']['stats']['MostRecent']['Published']
                 data = res['stats']['metrics']
                 crit = data.get('criticality')
                 if(crit == 1):
@@ -65,7 +67,7 @@ def inbound():
                 else:
                     criticality = str(data.get('criticality'))
                     color ="#000000"
-                totalHits = data.get('totalHits')
+                totalHits = int(data.get('totalHits'))
                 riskScore = data.get('riskScore')
                 maliciousHits = data.get('maliciousHits')
                 if not data.get('darkWebHits'):
@@ -84,7 +86,7 @@ def inbound():
                         'author_name': queryString,
                         'title': 'Recorded Future Connect API Search Results',
                         'title_link': 'https://www.recordedfuture.com/live/sc/entity/' + entity,
-                        'text': 'Total Hits:  ' + str(int(totalHits)),
+                        'text': 'Total Hits:  ' + str(totalHits),
                         "fields": [
                         {
                             "title": "Criticality",
@@ -117,6 +119,8 @@ def inbound():
                             "short": "true"
                         },
                         ],
+                        "text": "First Seen: " + firstSeen,
+                        "text": "Last Seen: " + lastSeen,
                         "footer": "Recorded Future",
                         "footer_icon": "https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAOnAAAAJDJjOGE4Mzk4LWMwMDktNGY1OC05NTNmLTBlNDVhNjllYjcxZg.png",
                         "ts": time.time()
