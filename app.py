@@ -68,7 +68,10 @@ def inbound():
                 totalHits = data.get('totalHits')
                 riskScore = data.get('riskScore')
                 maliciousHits = data.get('maliciousHits')
-                darkWebHits = data.get('darkWebHits')
+                if not data.get('darkWebHits'):
+                    darkWebHits = 0
+                else:
+                    darkWebHits = data.get('darkWebHits')
                 sevenDayHits = data.get('sevenDaysHits')
                 oneDayHits = data.get('oneDayHits')
 
