@@ -53,7 +53,8 @@ def inbound():
             for res in result['events']:
                 #firstSeen = res['stats']['stats']['First']['Published']
                 firstSeen = "temp"
-                lastSeen = res['stats']['stats']['MostRecent']['Published']
+                #lastSeen = res['stats']['stats']['MostRecent']['Published']
+                lastSeen = "temp"
                 data = res['stats']['metrics']
                 crit = data.get('criticality')
                 if(crit == 1):
