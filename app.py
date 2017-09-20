@@ -52,7 +52,7 @@ def inbound():
             # Prepare and send RF API query response metrics & Connect API URL to Slack
             for res in result['events']:
                 data = res['stats']['metrics']
-                crit = data.get['criticality']
+                crit = data.get('criticality')
                 if(crit == 1):
                     criticality = "Low"
                     color = "#61C359"
@@ -82,32 +82,32 @@ def inbound():
                         {
                             "title": "Criticality",
                             "value": criticality,
-                            "short": true
+                            "short": "true"
                         },
                         {
                             "title": "Risk Score:",
                             "value": riskScore,
-                            "short": true
+                            "short": "true"
                         },
                         {
                             "title": "Malicious Hits",
                             "value": maliciousHits,
-                            "short": true
+                            "short": "true"
                         },
                         {
                             "title": "Dark Web Hits:",
                             "value": darkWebHits,
-                            "short": true
+                            "short": "true"
                         },
                         {
                             "title": "7-day Hits (Total):",
                             "value": sevenDayHits,
-                            "short": true
+                            "short": "true"
                         },
                         {
                             "title": "1-day Hits (Total):",
                             "value": oneDayHits,
-                            "short": true
+                            "short": "true"
                         },
                         ],
                         "footer": "Recorded Future",
